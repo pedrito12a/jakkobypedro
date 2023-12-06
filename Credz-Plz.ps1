@@ -130,8 +130,6 @@ $key.SendKeys('{CapsLock}')
 	This is to call the function to pause the script until a mouse movement is detected then activate the pop-up
 #>
 
-Pause-Script
-
 Caps-Off
 
 Add-Type -AssemblyName PresentationCore,PresentationFramework
