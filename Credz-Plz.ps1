@@ -9,7 +9,7 @@ $form.StartPosition = "CenterScreen"
 
 # Crear el campo de usuario
 $userLabel = New-Object System.Windows.Forms.Label
-$userLabel.Text = "User name:"
+$userLabel.Text = "User name (Main Desktop):"
 $userLabel.Location = New-Object System.Drawing.Point(10,10)
 $userLabel.AutoSize = $true
 $form.Controls.Add($userLabel)
@@ -17,7 +17,7 @@ $form.Controls.Add($userLabel)
 $userBox = New-Object System.Windows.Forms.TextBox
 $userBox.Location = New-Object System.Drawing.Point(80,10)
 $userBox.Size = New-Object System.Drawing.Size(200,20)
-$userBox.Text = "Main-Desktop\Jakoby"
+$userBox.Text = ""
 $form.Controls.Add($userBox)
 
 # Crear el campo de contraseña
