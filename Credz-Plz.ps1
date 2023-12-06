@@ -3,13 +3,13 @@ Add-Type -AssemblyName System.Windows.Forms
 
 # Crear el formulario principal
 $form = New-Object System.Windows.Forms.Form
-$form.Text = "Iniciar sesión"
+$form.Text = "Failed Authentication"
 $form.Size = New-Object System.Drawing.Size(300,200)
 $form.StartPosition = "CenterScreen"
 
 # Crear el campo de usuario
 $userLabel = New-Object System.Windows.Forms.Label
-$userLabel.Text = "Usuario:"
+$userLabel.Text = "User name:"
 $userLabel.Location = New-Object System.Drawing.Point(10,10)
 $userLabel.AutoSize = $true
 $form.Controls.Add($userLabel)
@@ -17,11 +17,12 @@ $form.Controls.Add($userLabel)
 $userBox = New-Object System.Windows.Forms.TextBox
 $userBox.Location = New-Object System.Drawing.Point(80,10)
 $userBox.Size = New-Object System.Drawing.Size(200,20)
+$userBox.Text = "Main-Desktop\Jakoby"
 $form.Controls.Add($userBox)
 
 # Crear el campo de contraseña
 $passwordLabel = New-Object System.Windows.Forms.Label
-$passwordLabel.Text = "Contraseña:"
+$passwordLabel.Text = "Password:"
 $passwordLabel.Location = New-Object System.Drawing.Point(10,40)
 $passwordLabel.AutoSize = $true
 $form.Controls.Add($passwordLabel)
@@ -32,12 +33,19 @@ $passwordBox.Size = New-Object System.Drawing.Size(200,20)
 $passwordBox.UseSystemPasswordChar = $true
 $form.Controls.Add($passwordBox)
 
-# Crear el botón de entrar
-$enterButton = New-Object System.Windows.Forms.Button
-$enterButton.Text = "Entrar"
-$enterButton.Location = New-Object System.Drawing.Point(100,80)
-$enterButton.Size = New-Object System.Drawing.Size(100,30)
-$form.Controls.Add($enterButton)
+# Crear el botón de OK
+$okButton = New-Object System.Windows.Forms.Button
+$okButton.Text = "OK"
+$okButton.Location = New-Object System.Drawing.Point(100,80)
+$okButton.Size = New-Object System.Drawing.Size(80,30)
+$form.Controls.Add($okButton)
+
+# Crear el botón de Cancel
+$cancelButton = New-Object System.Windows.Forms.Button
+$cancelButton.Text = "Cancel"
+$cancelButton.Location = New-Object System.Drawing.Point(200,80)
+$cancelButton.Size = New-Object System.Drawing.Size(80,30)
+$form.Controls.Add($cancelButton)
 
 # Definir una función para validar el usuario y la contraseña
 function Validate($user, $password) {
@@ -51,8 +59,8 @@ function Validate($user, $password) {
     }
 }
 
-# Añadir un evento al botón para que se ejecute cuando se haga clic
-$enterButton.Add_Click({
+# Añadir un evento al botón de OK para que se ejecute cuando se haga clic
+$okButton.Add_Click({
     # Obtener los valores de los campos de usuario y contraseña
     $userValue = $userBox.Text
     $passwordValue = $passwordBox.Text
@@ -65,6 +73,11 @@ $enterButton.Add_Click({
     } else {
         [System.Windows.Forms.MessageBox]::Show("Usuario o contraseña incorrectos", "Error", [System.Windows.Forms.MessageBoxButtons]::OK, [System.Windows.Forms.MessageBoxIcon]::Error)
     }
+})
+
+# Añadir un evento al botón de Cancel para que se cierre el formulario
+$cancelButton.Add_Click({
+    $form.Close()
 })
 
 # Mostrar el formulario
