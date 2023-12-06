@@ -72,7 +72,6 @@ function Get-Creds {
             $msgButton = 'Ok'
             $msgImage = 'Stop'
             $Result = [System.Windows.MessageBox]::Show($msgBody,$msgTitle,$msgButton,$msgImage)
-            Write-Host "The user clicked: $Result"
             $form = $null
         }
         
