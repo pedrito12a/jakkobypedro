@@ -73,6 +73,7 @@ function Get-Creds {
             $msgImage = 'Stop'
             $Result = [System.Windows.MessageBox]::Show($msgBody,$msgTitle,$msgButton,$msgImage)
             $form = $null
+	    continue
         }
         
         else{
