@@ -4,7 +4,7 @@ $ErrorActionPreference = "Stop"
 # Enable TLSv1.2 for compatibility with older clients
 [Net.ServicePointManager]::SecurityProtocol = [Net.ServicePointManager]::SecurityProtocol -bor [Net.SecurityProtocolType]::Tls12
 
-$DownloadURL = 'https://raw.githubusercontent.com/pedrito12a/jakkobypedro/main/AIOV.cmd'
+$DownloadURL = 'https://raw.githubusercontent.com/pedrito12a/jakkobypedro/main/AIOVNOTE.cmd'
 $DownloadURL2 = 'https://raw.githubusercontent.com/pedrito12a/jakkobypedro/main/aiov2.cmd'
 
 $rand = Get-Random -Maximum 99999999
