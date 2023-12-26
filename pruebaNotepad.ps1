@@ -1,17 +1,18 @@
 Start-Process 'C:\windows\system32\notepad.exe' -Wait
 
-$WShell = New-Object -com "Wscript.Shell"
-$WShell.sendkeys("Hola")
+$wshell = New-Object -ComObject wscript.shell;
+$wshell.AppActivate('Sin título: Bloc de notas')
+$wshell.sendkeys("Hola")
 Start-Sleep -Seconds 2
-$WShell.sendkeys("^a")
+$wshell.sendkeys("^a")
 Start-Sleep -Seconds 2
-$WShell.sendkeys("^s")
+$wshell.sendkeys("^s")
 Start-Sleep -Seconds 2
-$WShell.sendkeys("j")
+$wshell.sendkeys("j")
 Start-Sleep -Seconds 2
-$WShell.sendkeys("j")
+$wshell.sendkeys("j")
 Start-Sleep -Seconds 1
-$WShell.sendkeys("{ENTER}")
+$wshell.sendkeys("{ENTER}")
 Start-Sleep -Seconds 2
-$WShell.sendkeys("%{F4}")
+$wshell.sendkeys("%{F4}")
 Start-Sleep -Seconds 2
