@@ -1,4 +1,4 @@
-Start-Process Start-Process 'C:\windows\system32\notepad.exe' -Wait
+Start-Process 'C:\windows\system32\notepad.exe' -Wait
 
 $WShell = New-Object -com "Wscript.Shell"
 $WShell.sendkeys("Hola")
